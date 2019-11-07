@@ -1,0 +1,620 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov  5 22:51:23 2019
+
+@author: swanliz98
+"""
+
+'''
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+https://docs.python.org/3/contents.html
+    website to try to find information on anything and everything python
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+
+variable types:
+    integers // int()
+    float - real numbers // float()
+    string - sequence of characters// str() // You can only concatenate strings!
+    boolean // bool() aka True False
+    NoneType // None
+    
+    use type() to find out the type of the object/variable you have
+    you can convert them into different types 
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+operators on integers and floats:
+    i+j - addition
+    i-j - subtraction
+    i*j - multiplication
+    i/j - division
+    i%j - remainder when i is divided by j 
+    i**j - i to the power of j
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+multiple assignment and variable swapping:
+    x,y = 11,13
+    a,b,c = 1,2,3
+    
+    x,y = y,x
+    
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+comparison operators on int, float, string
+    strings are compared alphabetically
+    
+    i>j
+    i>=j
+    i<j
+    i<=j
+    i==j
+    i!=j
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+logic operators on bools
+    
+    a = True // b = False
+    not a
+    a and b
+    a or b
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+decision series logic
+
+    if - initial test
+    else - not required, other option
+    elif - not required, specifying the other option, can have more than one
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+loops: while and for
+    while - keeps going until a certain goal is met, needs to have an element change within the loop to keep it from running forever
+    for - keeps going until the parameter you set is achieved // can have it run within a range(start, stop, step)
+        for i in range(7,15,2)...
+    
+    break - get's you out of the most inner loop that you were just working in
+        while <condition_1>:  
+            while <condition_2>:
+                <expression_a>  
+                break
+                <expression_b>
+            <expression_c>
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+More on Strings
+    len() --> gets you the length of the string you put in the parentheses
+    
+    indexing and slicing : finding the value of a certain place inside of a string [indv character] OR [start, stop, step]
+        alphabet = abcdefghijklmnopqrstuvwxyz
+        alphabet[0] --> a
+        alphabet[1] --> b
+        alphabet[-1] --> z
+        alphabet[2:4] --> cd
+        alphabet[::] --> abcdefghijklmnopqrstuvwxyz
+        alphabet[::-1] --> zyxwvutsrqponmlkjihgfedcba
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+lists - comma separated values inside square brackets
+    can also be indexed and sliced similar to strings (see above)
+    letters = [a,b,y,e,g,i,p]
+    numbers = [1,2,3,4,5,6]
+    squares = [2,4,9,16,25]
+    names = ['Gus', 'Liz', 'Jack', 'Jill']
+    presidents = [[Bush,2000],[Obama,2008],[Trump,2016]]
+    
+    can also use len() with lists
+    
+    LIST COMMANDS//ACTIONS
+    list.append(x) - Add an item to the end of the list. Equivalent to a[len(a):] = [x].
+    list.extend(iterable) - Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable.
+    list.insert(i, x) - Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).
+    list.remove(x) - Remove the first item from the list whose value is equal to x. It raises a ValueError if there is no such item.
+    list.pop([i]) - Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)
+    list.clear() - Remove all items from the list. Equivalent to del a[:].
+    list.index(x[, start[, end]]) - Return zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item.
+    list.count(x) - Return the number of times x appears in the list.
+    list.sort(key=None, reverse=False) - Sort the items of the list in place (the arguments can be used for sort customization, see sorted() for their explanation).
+    list.reverse() - Reverse the elements of the list in place.
+    list.copy() - Return a shallow copy of the list. Equivalent to a[:].
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+Tuples - comma separated values inside parentheses
+    can be indexed
+    immutable - cannot be changed!
+    can contain different types of values
+    t = 123, 234, 'hi', 1.9
+   
+    empty = ()
+    singleton = 'hello',    # <-- note trailing comma
+    len(empty) --> 0
+    len(singleton) -->1
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+Sets - A set is an unordered collection with no duplicate elements. 
+    Basic uses include membership testing and eliminating duplicate entries. 
+    Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+    
+    basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+    print(basket) --> {'orange', 'banana', 'pear', 'apple'}
+    'orange' in basket --> True
+    'crabgrass' in basket --> False
+    
+    
+    # Demonstrate set operations on unique letters from two words
+    a = set('abracadabra')
+    b = set('alacazam')
+    
+    a   # to get unique letters in a
+    {'a', 'r', 'b', 'c', 'd'} 
+    
+    a - b   # letters in a but not in b
+    {'r', 'd', 'b'}
+
+    a | b    # letters in a or b or both
+    {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+    
+    a & b   # letters in both a and b
+    {'a', 'c'}
+
+    a ^ b    # letters in a or b but not both
+    {'r', 'd', 'b', 'm', 'z', 'l'}
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+Dictionaries - Dictionaries are sometimes found in other languages as “associative memories” or “associative arrays”. 
+    Unlike sequences, which are indexed by a range of numbers, dictionaries are indexed by keys, 
+    which can be any immutable type; strings and numbers can always be keys.
+
+    grades = {'Gus':'C-', 'Liz':'A', 'Jack':'B', 'Jill':'B+'}
+    grades['Abe'] = 'A+' #--> adds abe with an A+ to the dictionary
+    grades['Gus'] # --> returns Gus' grade
+    del grades['Abe'] #--> deletes abe from the dictionary
+    list(grades) #--> returns the keys of the dictionary grades in a list
+    'Liz' in grades # --> returns True (boolean) because Liz is in grades
+    'Allie' in grades #--> returns False (boolean) because Allie is not in grades
+
+
+ --  --  --  --  --  --  --  --  --  --  --  --  
+
+'''
+
+
+# Hello World - 
+'assign a value to variable "name" '
+'assign a value to variable "greeting" '
+'print out name and greeting variables to get "Hello World, this is Gus"' 
+
+    # A - use commas
+    
+    # B - use +s
+    
+    # C - use a formatted string print(f"")
+
+    #1.5 - use * as a repeater to say "hello liz" 3 times 
+
+
+# Favorite Nubmer - 
+'use input to find a favorite number of the user and assign it to a variable'
+'make a new formatted print statement to say what the users favorite number is'
+'example: animal = input("Please enter your favorite animal: ")'
+
+
+
+# Example of If/Else Logic
+"""
+x = float(input("Enter a number for x: "))
+y = float(input("Enter a number for y: "))
+if x == y:
+    print("x and y are equal")
+    if y != 0:
+        print("therefore, x / y is", x/y)
+elif x < y:
+    print("x is smaller")
+elif x > y:
+    print("y is smaller")
+print("thanks!")
+"""
+
+
+
+# Determining a Major -
+'use if logic to test a "student" variable and assign the correct string to the "major" variable then print it'
+#major = ''
+#student = ''
+
+    #A - Just Gus
+    
+    #B - Gus and Liz
+    
+    #C - Gus, Liz, and Jack
+    
+    #D - Gus, Liz, Jack, and Jill
+
+    
+   
+# Example of a While Loop
+"""
+n = 0
+while n < 5:
+    print(n)
+    n = n+1 #can also be written n += 1
+"""
+
+
+# Testing the difference of While Loop Syntax/Placement
+'copy and paste the code from above and see what happens'
+'if you switch the order of the print and addition lines are switched what happens'
+
+
+
+# Example: Gamblers Ruin
+"""
+Consider an insurance company that earns $1 per day (from interest), but on each day, 
+independent of the past, might suffer a claim against it for the amount $2 with probability of 0.6. 
+Whenever such a claim is suffered, $2 is removed from the reserve of money.
+If the insurance company starts off with $100, what is the probability that it runs out of money within 500 days?
+
+sim = 0
+nruin = 0
+nsims =1000
+while sim < nsims:
+    sim += 1
+    amount = 100
+    days = 500
+    day = 0 
+    while day < days:
+        day += 1
+        prob = random.random()
+        if prob > 0.6:   
+            amount +=1
+        else:
+            amount -=1
+        if amount  == 0:
+            nruin += 1
+            break
+print('Probability of ruin is', float(nruin)/nsims)
+"""
+
+
+# Celebrating your 21st Birthday
+'write a while loop to tell you "happy birthday" each year and how old you are'
+'once you turn 21 years old, print "You can legally drink now!" and stop running the loop'
+
+
+
+
+# Example of a For Loop
+"""
+mysum = 0
+for i in range(5, 11, 2):  mysum += i
+print(mysum)
+"""
+
+
+
+
+# Example: Compound vs. simple interest    
+
+############## Uncomment the code below and see what the difference is between the 
+#multiple ways to calculate simple and computing interest ##########
+
+'''
+#Using these numbers as variables, 
+#let's compare simple vs. daily compound interest over 10 years
+#using a for loop.
+#Try to do the same thing with a while loop.
+
+#initial inputs:
+years = 10
+invest = 25000
+rate = 0.07
+
+# A - simpleinterest
+print(years*invest*rate)
+
+# B - compound interest with while loop
+counter = 0
+while counter < years:
+    counter +=1
+    invest = invest*(1+rate)
+print(invest)
+
+# C - compound interest with a for loop
+for x in range(years):
+    invest = invest*(1+rate)
+print(invest)
+
+# D - this is daily compounding compared to above what i did was yearly compunding.
+for i in range(365*years):
+    invest = invest + invest*(rate/365)
+'''
+
+
+
+
+
+# Example - Retirement Savings Calculator
+'''
+currentage = int(input("How old are you? "))
+retireage = int(input("When will you retire? "))
+investment = float(input("How much do you want to put towards your retirement? "))
+investrate = float(input("What rate does your 401k have? "))
+
+for x in range(currentage,retireage):
+    investment = investment*(1+(investrate))
+print("At retirement, you would have", investment)
+'''
+
+
+
+
+# 
+
+
+
+
+
+# String Exercises - Length, Indexing, Slicing, Looping
+
+'''
+#1 - string length
+A - compute length of 'Seattle'
+B - compute length of 'Cedar Falls'
+C - print the name of the city that has fewer characters in the name
+D - print the name of the city that comes first alphabetically
+'''
+#workspace...
+
+
+
+'''
+#2 - string index and slice
+letters = 'checkio'
+
+produce output 
+A - 'he'
+B - 'io'
+C - 'check'
+'''
+#letters = 'checkio'
+
+
+
+'''
+#3 - String and Loop
+sample = "Hello!!"
+A - Iterate over string using for loop
+
+Now try to with index approach
+B - Iterate over string using for loop with index
+
+example output:
+H
+e
+l
+l
+o
+!
+!
+
+'''
+#sample = 'Hello!!'
+
+
+
+# Example of bank and raise calculators
+
+'''
+#bank calculations
+
+payrate = 25.00
+hours = int(input("How many hours did you work this week? "))
+paycheck = payrate*hours
+taxrate = .2
+taxpayment = paycheck*taxrate
+aftertaxpay = paycheck-taxpayment
+tosaveyn = input("Would you like to put a portion of your paycheck into your savings account? (Y/N) ")
+if tosaveyn == "Y":
+    saverate = int(input("How much would you like to save? (Percentage ex. 20) "))
+    savedeposit = aftertaxpay*(saverate*.01)
+    aftertaxsavepay = aftertaxpay-savedeposit
+    print("You worked", hours, "hours this week.")
+    print("Your initial paycheck amounted to", paycheck)
+    print("Your taxes amounted to", taxpayment)
+    print("You deposited", savedeposit, "into your savings account.")
+    print("After tax and savings, your pay deposit into your checking account is", aftertaxsavepay)
+else:
+    print("You worked", hours, "hours this week.")
+    print("Your initial paycheck amounted to", paycheck)
+    print("Your taxes amounted to", taxpayment)
+    print("You did not deposit anything into your savings account.")
+    print("After tax and savings, your pay deposit into your checking account is", aftertaxsavepay)
+
+
+
+#raise calculator
+
+payrate = 25.00
+print("Your current pay is", payrate, "an hour.")
+print("To calculate what you would make after a raise,")
+hours1 = int(input("Enter how many hours you work in a week: "))
+payraise = float(input("Enter the amount of a raise you anticipate: "))
+paycheck = payrate*hours1
+taxrate = .12
+taxpayment = paycheck*taxrate
+aftertaxpay = paycheck-taxpayment
+tosaveyn = input("Would you like to continue to put a portion of your paycheck into your savings account? (Y/N) ")
+if tosaveyn == "Y":
+    saverate = int(input("How much would you like to save? (Percentage ex. 20) "))
+    savedeposit = aftertaxpay*(saverate*.01)
+    aftertaxsavepay = aftertaxpay-savedeposit
+    print("Your new initial paycheck would amount to:", paycheck)
+    print("Your taxes would amount to:", taxpayment)
+    print("You would deposit", savedeposit, "into your savings account.")
+    print("After tax and savings, your new pay deposit into your checking account would be:", aftertaxsavepay)
+else:
+    print("Your new initial paycheck would amount to:", paycheck)
+    print("Your taxes would amount to:", taxpayment)
+    print("You did not deposit anything into your savings account.")
+    print("After tax and savings, your new pay deposit into your checking account would be:", aftertaxsavepay)
+
+'''
+
+
+
+# Example of College Loans Calculations
+'''
+#Part A - Calculating total amount owed after graduation
+
+loan_per_year = float(input("Enter the loan amount per year: "))
+interest_rate = float(input("Enter the loan interest rate: "))
+years = int(input("Enter the number of years you will be taking a loan: "))
+
+total_owed = 0
+counter = 0
+
+while counter < years:
+    total_owed = (loan_per_year + total_owed)*(1+ interest_rate)
+    counter += 1
+print("Total amount owed at graduation:", total_owed)
+
+
+#Part B - Determine if monthly payment is feasible
+
+monthly_payment = float(input("Enter a monthly payment goal "))
+minimummospayment = 1 #need to figure out how to calculate this!
+if monthly_payment >= minimummospayment:
+    print("The monthly payment of $" + monthly_payment + " will work!")
+else:
+    print("The monthly payment of $" + monthly_payment + "will not work. You would be paying off this loan forever!")
+
+print("The minimum monthly payment for this loan would be " + minimummospayment + "dollars.")
+
+
+#Part C - Determine how long it will take to pay off your student loans
+
+months = 0
+
+while total_owed <= 0:
+    months +=1
+    total_owed -= monthly_payment
+    # add back interest accrued that month
+
+yearstopay = months/12
+print("With a monthly payment of", monthly_payment, ", it will take", months, "months to pay off your student loans.")
+print("Or", yearstopay, "years to pay off your student loans.")
+'''
+
+
+
+# Lists Dog Names
+'A - make a list of potential names for boy dogs'
+
+'B - make a list of potential names for girl dogs'
+
+'C - add "Teddy" to the list of boy names'
+
+'D - sort both of them alphabetically'
+
+'E - make a new list of all the names combined and sorted alphabetically'
+
+'F - remove the name if they start with S'
+
+'G - remove the name if they contain i'
+
+
+
+
+# Example of using a fuction to get student information
+'''
+def get_grade(student, name_list, grade_list, course_list):
+    i = name_list.index(student)
+    grade = grade_list[i]
+    course = course_list[i]
+    return (course, grade)
+
+
+names = ['liz', 'jess', 'blake', 'isaac']
+grade = ['B', 'A+', 'A', 'A']
+course = ['BUS:3500', 'MSCI:2800', 'MGMT:3000', 'MKTG:3000']
+
+print(get_grade('liz', names, grade, course))
+'''
+
+
+
+
+
+
+# Example of a function used to solve a statistics/gambling problem
+
+"""
+
+import random #we left this outside of the function because if we declare it in the largest scope, it will
+              #continue to be true/applicable inside the function scope when random is utilized.
+
+def dicegame(numsim): #our fuction takes as its input the number of simulations we want to run
+    averagewon = 0
+    gamewinnings = 0
+    winningslist = []
+    maxwon = 0
+    countzeros = 0
+    while numsim > 0:
+        numsim -= 1
+        roll = random.randint(1,6) #the initial roll
+        if roll < 4:
+            gamewinnings += 0
+        else:
+            while roll > 3:
+                if roll == 4:
+                    gamewinnings += roll
+                elif roll == 5:
+                    gamewinnings += roll
+                elif roll == 6:
+                    gamewinnings += roll
+                roll = random.randint(1,6) #the rolls following (and continuing the game)
+        winningslist.append(gamewinnings)
+        
+        if gamewinnings == 0: ###    this section of code was a check/addition to     ###
+            countzeros += 1   ### test the amount of times a three or less was rolled ###
+        
+        gamewinnings = 0
+    averagewon = sum(winningslist) / len(winningslist)
+    percentagezero = countzeros/len(winningslist)*100 #this line calculates the percentage based off the countzeros above
+    if winningslist != []:
+        maxwon = max(winningslist)
+    #print(winningslist[0:10]) <-- our check to make sure the code was running correctly
+    print(f"Average amount won = ${averagewon:0.2f}, max amount won per game = ${maxwon}, number of times at zero = {countzeros} or {percentagezero:0.2f}% of the time.")
+    return (averagewon, maxwon, countzeros, percentagezero)
+dicegame(10000)
+
+
+======= [isaac] =======
+For $3 a game, I would play. When running the simulation, the average amount you win
+is usually close to 5. This being said, you still have good odds of making a profit of at least
+$2 on average per game. Additionally, the max won that I received was close to $70, 
+which is a great best case outcome for a $3 buy-in.
+=======================
+
+======== [liz] ========
+Initially it's a risky gamble. With 6 chances on the first roll only half of them win and the average
+amount of money is 2.50 (the sum of 0,0,0,4,5,6 is 15... divided by 6 is 2.5) so you're immediately
+thinking that you will on average lose 50 cents a game. However it's the fact that you get to keep
+playing after a 4, 5, and 6 roll that make it worth playing. After running 10,000 simulations of the game
+even though you still end up with zero 50% of the time, the average amount won increases to $5 - this is
+due to the fact that your ability to keep winning is the same ability that sweetens the pot each time.
+=======================
+
+
+"""
